@@ -4,7 +4,7 @@
     "outDir": "dist/types",
     "declaration": true,
     "emitDeclarationOnly": true,
-    "tsBuildInfoFile": "./tsconfig.tsbuildinfo"
+    "tsBuildInfoFile": "./.tsbuildinfo/tsconfig.types.tsbuildinfo"
   },
   "exclude": ["src/**/*.test.ts"]
 }
