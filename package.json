@@ -1,15 +1,16 @@
 {
   "name": "@nicolawealth/clamp",
   "version": "0.0.2",
-  "main": "./dist/index.umd.js",
-  "module": "./dist/index.umd.js",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
   "unpkg": "./dist/index.umd.js",
   "types": "./dist/types/index.d.ts",
   "source": "src/index.ts",
   "exports": {
     ".": {
-      "require": "./dist/index.umd.js",
-      "import": "./dist/index.umd.js"
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
     }
   },
   "files": [
@@ -33,7 +34,7 @@
   "license": "MIT",
   "scripts": {
     "clean": "rm -rf dist/* && rm -f tsconfig.tsbuildinfo",
-    "build": "microbundle --format umd",
+    "build": "npm run clean && vite build && tsc -p tsconfig.types.json",
     "lint": "eslint src",
     "test": "mocha",
     "test-r": "mocha -R spec",
@@ -42,25 +43,26 @@
     "doc": "npx typedoc src/*.ts src/**/*.ts --out dist/doc"
   },
   "engines": {
-    "node": ">=22"
-  },
-  "dependencies": {
+    "node": ">=22.22.2",
+    "npm": ">=12"
   },
   "devDependencies": {
     "@nicolawealth/code_coverage_extractor": "^2",
-    "@types/mocha": "^9",
+    "@types/mocha": "^10.0.10",
     "@types/node": "^22",
     "@types/sinon": "^10",
     "@typescript-eslint/eslint-plugin": "^8",
     "eslint": "^9",
     "eslint-config-turbo": "^2",
-    "microbundle": "^0.15.1",
-    "mocha": "^10",
-    "mocha-junit-reporter": "^2",
-    "nyc": "^15",
-    "sinon": "^19",
+    "mocha": "^12.0.0",
+    "nyc": "^18.0.0",
+    "sinon": "^22.1.0",
     "ts-node": "^10",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vite": "^8.3.0"
   },
-  "packageManager": "npm@10.9.0"
+  "packageManager": "npm@12.0.2",
+  "allowScripts": {
+    "fsevents@2.3.3": true
+  }
 }

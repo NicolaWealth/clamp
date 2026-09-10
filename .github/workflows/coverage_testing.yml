@@ -7,7 +7,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
-  
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -21,6 +21,7 @@ jobs:
         with:
           token: ${{ secrets.PAT }}
           node-version: 22
+      - run: npm install --global npm@12.0.2
       - run: npm ci
       - run: npm run cover:report
 
