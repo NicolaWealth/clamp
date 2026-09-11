@@ -3,6 +3,8 @@
   "compilerOptions": {
     "outDir": "dist/types",
     "declaration": true,
-    "emitDeclarationOnly": true
-  }
+    "emitDeclarationOnly": true,
+    "tsBuildInfoFile": "./.tsbuildinfo/tsconfig.types.tsbuildinfo"
+  },
+  "exclude": ["src/**/*.test.ts"]
 }

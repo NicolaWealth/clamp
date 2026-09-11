@@ -10,12 +10,11 @@ jobs:
     env:
       COV_MIN: 0
     container:
-      image: node:22
+      image: node:22.23.2
 
     steps:
-      - uses: actions/checkout@v3
-        with:
-          node-version: 22
+      - uses: actions/checkout@v4
+      - run: npm install --global npm@12.0.2
       - run: npm ci
       - run: npm run cover:report
 
@@ -33,7 +32,7 @@ jobs:
           COVERAGE=$(echo $COVERAGE | xargs)
           INT_COV=${COVERAGE%.*}
           echo "INT_COV=$INT_COV" >> $GITHUB_ENV
-      
+
       - name: Confirm Coverage Value
         run: |
           # Check if the coverage value is 100% and fail if it's not
